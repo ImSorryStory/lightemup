@@ -1,0 +1,15 @@
+<!-- templates/time_is_up.html -->
+{% extends "layout.html" %}
+
+{% block title %}Light'em Up! — Время вышло{% endblock %}
+
+{% block content %}
+<div class="center">
+  <h2>Время вышло!</h2>
+  <p>Вы заработали {{ score }} очков.</p>
+  <p>В таблице лидеров вы на <b>{{ position }}</b>-м месте.</p>
+  <p>
+    <a href="{{ url_for('choose_mode') }}" class="btn">На главную</a>
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,280 @@
+/* Примерный современный стиль */
+
+html, body {
+  margin: 0; padding: 0;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Градиент для фона */
+.bg-gradient {
+  background: linear-gradient(120deg, #ffffff, #eeeeff);
+  min-height: 100vh;
+}
+
+/* Светлый фон для страниц */
+.bg-light {
+  background-color: #fafaff;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Карточка формы */
+.form-card {
+  background: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-card label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+input[type="text"], input[type="password"], input[type="number"], select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: #5d78ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #4657d1;
+}
+
+/* Шапка / заголовок */
+.header {
+  background: #5d78ff;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+.header h1 {
+  margin: 0;
+}
+
+/* Полоска с таймером */
+.info-bar {
+  background: #eee;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.timer {
+  font-weight: bold;
+}
+
+/* Игровое поле */
+.game-container {
+  margin: 20px auto;
+  max-width: fit-content;
+}
+
+.field {
+  display: inline-block;
+}
+
+/* Одна клетка */
+.cell {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, transform 0.2s ease;
+}
+
+.cell:hover {
+  transform: scale(1.04);
+}
+
+/* Подсвеченная */
+.cell.lit {
+  background-color: #fffdcc; /* мягкий желтоватый */
+}
+
+/* Линии - псевдоэлементы, но сделаем через вложенные div */
+.cell .lineU,
+.cell .lineD,
+.cell .lineL,
+.cell .lineR {
+  position: absolute;
+  background-color: #0099ff;
+  transition: background-color 0.2s, transform 0.3s;
+}
+.cell .lineU {
+  top: 0; left: 50%;
+  width: 3px; height: 25px;
+  transform: translateX(-50%);
+}
+.cell .lineD {
+  bottom: 0; left: 50%;
+  width: 3px; height: 25px;
+  transform: translateX(-50%);
+}
+.cell .lineL {
+  top: 50%; left: 0;
+  height: 3px; width: 25px;
+  transform: translateY(-50%);
+}
+.cell .lineR {
+  top: 50%; right: 0;
+  height: 3px; width: 25px;
+  transform: translateY(-50%);
+}
+
+/* Панель с кнопками */
+.controls {
+  text-align: center;
+  margin-bottom: 30px;
+}
+/* Примерные стили для шапки, ссылок "Вход/Выход", карточки профиля */
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  margin: 0;
+}
+
+.auth-links a {
+  margin-left: 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.auth-links a:hover {
+  opacity: 0.8;
+}
+
+.btn-login, .btn-logout {
+  background: #314eed; /* или #5d78ff, если хотите совпадать с кнопками */
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+/* Карточка профиля */
+.profile-card {
+  display: flex;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  padding: 20px;
+  margin-bottom: 20px;
+  align-items: center; /* верт. выравнивание */
+  gap: 20px;
+}
+
+.profile-avatar .avatar-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.profile-info {
+  font-size: 16px;
+}
+
+.profile-info p {
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+/* Можно добавить анимации при ховере и т.д. */
+.profile-card:hover {
+  transform: scale(1.01);
+  transition: transform 0.3s;
+}
+
+/* Пример стилей для alert */
+.alert {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  font-weight: 500;
+}
+.alert-success {
+  background: #dff0d8;
+  color: #3c763d;
+}
+.alert-top {
+  background: #ffe4b2;
+  color: #8a6d3b;
+}
+
+/* Кнопки "Вход" / "Выход" */
+.btn-login, .btn-logout {
+  background: #314eed;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: 500;
+}
+
+/* Шапка с логотипом и ссылками */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+.auth-links a {
+  margin-left: 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.auth-links a:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,32 @@
+<!-- templates/game.html -->
+{% extends "layout.html" %}
+
+{% block title %}Light'em Up! — Игровое поле{% endblock %}
+
+{% block head %}
+<!-- Можно подключить дополнительный JS (или CSS) в block head -->
+<script>
+  const puzzleData = {{ puzzle_data|tojson }};
+  const gameMode = "{{ mode }}";
+  const difficulty = "{{ difficulty }}";
+  const timeLimit = {{ time_limit }};
+</script>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="info-bar">
+  <span>Режим: {{ mode|title }} &nbsp;|&nbsp; Сложность: {{ difficulty|title }}</span>
+  <span id="timer" class="timer"></span>
+</div>
+
+<div class="game-container" id="game-container">
+  <div id="field" class="field">
+    <!-- Поле отрисуется через JS -->
+  </div>
+</div>
+
+<div class="controls center">
+  <button class="btn" onclick="checkSolution()">Проверить</button>
+</div>
+{% endblock %}

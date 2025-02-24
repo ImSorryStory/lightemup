@@ -1,0 +1,28 @@
+<!-- templates/training_result.html -->
+{% extends "layout.html" %}
+
+{% block title %}Light'em Up! — Результат{% endblock %}
+
+{% block content %}
+<div class="center">
+  <h2>Поздравляем!</h2>
+  <p>Вы набрали {{ points }} очков, затратив {{ time_sec }} секунд.</p>
+
+  {% if personal_record %}
+    <div class="alert alert-success">
+      Вы побили свой личный рекорд!
+    </div>
+  {% endif %}
+
+  {% if global_top %}
+    <div class="alert alert-top">
+      Вы стали новым лидером в глобальной таблице!
+    </div>
+  {% endif %}
+
+  <p>
+    <a href="{{ url_for('game') }}" class="btn">Новый уровень</a>
+    <a href="{{ url_for('choose_mode') }}" class="btn">На главную</a>
+  </p>
+</div>
+{% endblock %}

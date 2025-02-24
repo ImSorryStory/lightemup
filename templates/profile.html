@@ -1,0 +1,40 @@
+<!-- templates/profile.html -->
+{% extends "layout.html" %}
+
+{% block title %}Light'em Up! — Мой профиль{% endblock %}
+
+{% block content %}
+<h2>Мой профиль</h2>
+
+<div class="profile-card">
+  <div class="profile-avatar">
+    {% if user.avatar %}
+      <img src="{{ user.avatar }}" alt="Аватар" class="avatar-img">
+    {% else %}
+      <img src="{{ url_for('static', filename='images/default_avatar.png') }}" alt="Default Avatar" class="avatar-img">
+    {% endif %}
+  </div>
+  <div class="profile-info">
+    <p><strong>Логин:</strong> {{ user.login }}</p>
+    <p><strong>Ник:</strong> {{ user.nickname }}</p>
+    <p><strong>Мой рекорд:</strong> {{ user.best_score }}</p>
+  </div>
+</div>
+<p>
+  <a href="{{ url_for('choose_mode') }}" class="btn">Назад</a>
+</p>
+<hr>
+
+<form method="POST" enctype="multipart/form-data" class="form-card">
+  <label>Новый ник:
+    <input type="text" name="nickname" placeholder="Введите новый ник" value="{{ user.nickname }}">
+  </label>
+  
+  <label>Новый аватар:
+    <input type="file" name="avatar" accept="image/*">
+  </label>
+  
+  <button type="submit" class="btn">Сохранить</button>
+</form>
+{% endblock %}
+
